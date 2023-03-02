@@ -6,10 +6,14 @@
 
 print("Введіть час в секундах")
 sec = int(input())
-times = ("сек", "мин", "час", "дн")
-for i in range(3,0,-1):
-    rasch = 60**i
-    if rasch > 86400:
-        rasch = 86400
-    r = sec - rasch
-    print(r % (sec // rasch), times[i])
+day_s = sec // 86400
+hour_s = (sec % 86400) // 3600
+min_s = ((sec % 86400) % 3600) // 60
+sec_s =  ((sec % 86400) % 3600) % 60
+if day_s == 0:
+    if hour_s == 0:
+        if min_s == 0:
+            print(sec_s, "сек")
+        else: print(min_s, "мін", sec_s, "сек")
+    else: print(hour_s, "год", min_s, "мін", sec_s, "сек")
+else: print(day_s, "дн", hour_s, "год", min_s, "мін", sec_s, "сек")
