@@ -22,38 +22,18 @@ print("Тип операції 15 ** 2 є", type(15**2))
 
 spisok = ['в', '5', 'часов', '17', 'минут', 'температура', 'воздуха', 'была', '+5', 'градусов']
 
-# вирішення другої половини завдання
-i = 0
-_length = len(spisok)
-while i < _length:
-    if spisok[i].upper() == spisok[i]:
-        spisok.insert(i + 1, "'")
-        spisok.insert(i, "'")
-        print(i)
-        print(spisok)
-        _length = _length+2
-        if i + 3 <= _length:
-            i = i+3
-        else: i=_length
-    else: i = i + 1
-string = " ".join(spisok)
-print(string)
 
-# вирішення другої половини завдання. ver 2
+# вирішення другої половини завдання.
 i = 0
-
-while i < _length:
+while i < len(spisok):
     if spisok[i].upper() == spisok[i]:
-        spisok[i] = "'" + spisok[i] + "'"
-        i = i +1
-#        spisok.insert(i, "'")
-#        print(i)
+        stroka = spisok[i].split('+')
+        print(stroka)
+        if stroka[0] == "":
+            spisok[i] = "'+" + '{:02d}'.format(int(spisok[i])) + "'"
+        else: spisok[i] = "'" + '{:02d}'.format(int(spisok[i])) + "'"
         print(spisok)
-#        _length = _length+2
-#        if i + 3 <= _length:
-#            i = i+3
-#        else: i=_length
-#    else: i = i + 1
+    i = i +1
 string = " ".join(spisok)
 print(string)
 
