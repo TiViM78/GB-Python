@@ -95,16 +95,14 @@ print(
 #}
 
 def thesaurus(list_name):
-#    dictionary = {}
-    list_word = ""
-    i = 0
-    while i < len(list_name):
-        stroka = list_name[i]
-        list_word = list_word + stroka[0]
-        print(list_word)
-        i = i + 1
-    char_list = list(list_word)
-    return char_list
+    dictionary = {}                             #створення пустого словника
+        for item in list_name:                  # перебираємо кожний елемент зі списка імен
+            key = item[0]                       # створюємо КЛЮЧ для словника з першої літери імені
+            if key in dictionary:               # перевіряємо чи існує такий ключ в словнику
+                dictionary[key].append(item)    # якщо існує - додаємо значення
+            else: dictionary[key] = [item]      # якщо ні - створюємо новий ключ зі значенням імені
+
+        return dictionary #char_list
 
 list_name = input().split(", ")
 print(list_name)
