@@ -6,7 +6,30 @@
 #"восемь"
 #Если перевод сделать невозможно, вернуть None. Подумайте, как и где лучше хранить информацию, необходимую для перевода: какой тип данных выбрать, в теле функции или снаружи.
 
-
+def num_translate(stroka):
+    if stroka == "one":
+         return "один"
+    elif stroka == "two":
+         return "два"
+    elif stroka == "three":
+         return "три"
+    elif stroka == "four":
+         return "чотири"
+    elif stroka == "five":
+         return "п'ять"
+    elif stroka == "six":
+         return "шість"
+    elif stroka == "seven":
+         return "сім"
+    elif stroka == "eight":
+         return "вісім"
+    elif stroka == "nine":
+         return "дев'ять"
+    elif stroka == "ten":
+         return "десять"
+    elif stroka == "zero":
+         return "нуль"
+    return None
 
 def num_translate_adv(stroka):
     if stroka.lower() == "one":
@@ -55,8 +78,13 @@ def num_translate_adv(stroka):
         else: return "Нуль"
     return None
 
+# dig = input()
+dig = ""
 print(
-    num_translate_adv(input())
+    num_translate(dig)
+)
+print(
+    num_translate_adv(dig)
 )
 
 #Написать функцию thesaurus(), принимающую в качестве аргументов имена сотрудников и возвращающую словарь, в котором ключи — первые буквы имён, а значения — списки, содержащие имена, начинающиеся с соответствующей буквы. Например:
@@ -67,3 +95,17 @@ print(
 #}
 
 def thesaurus(list_name):
+#    dictionary = {}
+    list_word = ""
+    i = 0
+    while i < len(list_name):
+        stroka = list_name[i]
+        list_word = list_word + stroka[0]
+        print(list_word)
+        i = i + 1
+    char_list = list(list_word)
+    return char_list
+
+list_name = input().split(", ")
+print(list_name)
+print(thesaurus(list_name))
