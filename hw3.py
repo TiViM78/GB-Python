@@ -78,14 +78,6 @@ def num_translate_adv(stroka):
         else: return "Нуль"
     return None
 
-# dig = input()
-dig = ""
-print(
-    num_translate(dig)
-)
-print(
-    num_translate_adv(dig)
-)
 
 #Написать функцию thesaurus(), принимающую в качестве аргументов имена сотрудников и возвращающую словарь, в котором ключи — первые буквы имён, а значения — списки, содержащие имена, начинающиеся с соответствующей буквы. Например:
 #>>>  thesaurus("Иван", "Мария", "Петр", "Илья")
@@ -132,8 +124,44 @@ def thesaurus_adv(list_name):
     dict_sort = dict(sorted(dictionary.items(), reverse = False))   # робимо сортування і вказуємо в якому порядку: Revers (у зворотньому True, або в алфавітному)
     return dict_sort
 
-list_name = input().split(", ")
-print(list_name)
-print(thesaurus_adv(list_name))
+# Реализовать функцию get_jokes(), возвращающую n шуток, сформированных из трех случайных слов, взятых из трёх списков (по одному из каждого):
+# nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
+# adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
+# adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
+#         Например:
+# >>> get_jokes(2)
+# ["лес завтра зеленый", "город вчера веселый"]
+# Документировать код функции.
+# Сможете ли вы добавить еще один аргумент — флаг, разрешающий или запрещающий повторы слов в шутках (когда каждое слово можно использовать только в одной шутке)? Сможете ли вы сделать аргументы именованными?
 
+# Нажаль, реалізувати виключення повтори слів поки не можу! Можливо повернусь згодом
+
+def get_jokes(qty):
+    from random import randrange
+    nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
+    adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
+    adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
+    if (qty > 5 or qty < 1):
+        return print("Вказана неправильна кількість жартів. Спробуй ввести значення менше від 1 до 5")
+    jokes = []
+    i = 0
+    while i < qty:
+        jokes.append(nouns[randrange(len(nouns))] + " " +adverbs[randrange(len(adverbs))] + " " + adjectives[randrange(len(adjectives))])
+        i += 1
+
+    return jokes
+
+
+#dig = input()
+#dig = ""
+#print(
+#    num_translate(dig)
+#)
+#print(
+#    num_translate_adv(dig)
+#)
+#list_name = input().split(", ")
+#print(list_name)
+#print(thesaurus_adv(list_name))
+print(get_jokes(10))
 
