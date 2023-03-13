@@ -129,7 +129,8 @@ def thesaurus_adv(list_name):
         if key in dictionary:
             dictionary[key].append(item)
         else: dictionary[key] = [item]
-    return dictionary
+    dict_sort = dict(sorted(dictionary.items(), reverse = False))   # робимо сортування і вказуємо в якому порядку: Revers (у зворотньому True, або в алфавітному)
+    return dict_sort
 
 list_name = input().split(", ")
 print(list_name)
