@@ -29,8 +29,14 @@ def data_dict(strname):
 
 
 
-URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=EUR&date=20230322&json"
+_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=EUR&date=20230322&json"
 
+print("Rate date (YYYYMMDD):")
+date_rate = input()
+print("Currency rate:")
+currency = input()
+print(date_rate, currency)
+URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=" + currency + "&date=" + date_rate + "&json"
 response = requests.get(URL)
 dict2 = data_dict(response.text)
 print(dict2)
