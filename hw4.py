@@ -12,17 +12,19 @@ import requests
 import json
 
 
-def data_dict(listname):
+def data_dict(strname):
     dict = {}
-    __temp = listname.split()
-    temp = __temp.split(",")
-    print(temp)
+    __temp = strname.split()
+    temp = __temp[2].split(",")
+
+    print("temp", temp)
     for item in temp:
         _temp = item.split(":")
         key = _temp[0]
         if key in dict:
+            print("key", key)
             dict[key].append(_temp[1])
-        else: dict[key] = [_temp[0]]
+        else: dict[key] = [_temp[1]]
     return dict
 
 
@@ -30,10 +32,7 @@ def data_dict(listname):
 URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=EUR&date=20230322&json"
 
 response = requests.get(URL)
-__dict = str(response.text)
-print("Origins", __dict)
-_dict = __dict.split()
-print("_dict", _dict)
-dict1 = _dict[2].split(",")
-print("dict1", dict1)
-dict = data_dict(dict1)
+dict2 = data_dict(response.text)
+print(dict2)
+print(dict2['"rate"'])
+
